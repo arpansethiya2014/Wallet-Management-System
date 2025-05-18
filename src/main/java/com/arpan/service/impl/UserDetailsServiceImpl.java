@@ -78,7 +78,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 
 		Optional<UserDetails> optional = userDetailsRepository.findByMobile(mobile);
-
 		return "Avilable Wallet Balance : " + optional.get().getBalance();
 	}
 
