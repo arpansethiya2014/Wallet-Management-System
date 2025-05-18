@@ -82,4 +82,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return "Avilable Wallet Balance : " + optional.get().getBalance();
 	}
 
+	@Override
+	public String updateUserDetails(long id, UserDetailsRequest userDetailsRequest) {
+		Optional<UserDetails> optional = userDetailsRepository.findById(id);
+		if(!optional.isPresent()){
+			return "Data Not found.";
+		}
+
+		UserDetails userDetails = optional.get();
+		userDetails.setName(userDetailsRequest.getName());
+		userDetails.setMobile(userDetailsRequest.getMobile());
+        userDetails.setEmail(userDetailsRequest.getEmail());
+		userDetailsRepository.save(userDetails);
+		return "Data updated succesfully.";
+	}
 }
