@@ -3,6 +3,7 @@ package com.arpan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,12 @@ public class UserDetailsController {
 	@PutMapping("/update/{id}")
 	public String updateUserDetails(@PathVariable long id,@Valid @RequestBody UserDetailsRequest userDetailsRequest){
 		return userDetailsService.updateUserDetails(id,userDetailsRequest);
+	}
+
+	@GetMapping("/findById")
+	public ResponseEntity<UserDetails> findById(@RequestParam long id){
+		UserDetails userDetails = userDetailsService.findById(id);
+		return ResponseEntity.ok(userDetails);
 	}
 
 }

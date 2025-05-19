@@ -95,4 +95,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		userDetailsRepository.save(userDetails);
 		return "Data updated succesfully.";
 	}
+
+	@Override
+	public UserDetails findById(long id) {
+		Optional<UserDetails> optional = userDetailsRepository.findById(id);
+        UserDetails userDetails = optional.get();
+		return  userDetails;
+
+	}
 }

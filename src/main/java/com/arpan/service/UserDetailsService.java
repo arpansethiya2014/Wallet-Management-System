@@ -15,4 +15,6 @@ public interface UserDetailsService {
 	String findWalletBalnace(String mobile);
 
 	String updateUserDetails(long id, UserDetailsRequest userDetailsRequest);
+
+	UserDetails findById(long id);
 }
