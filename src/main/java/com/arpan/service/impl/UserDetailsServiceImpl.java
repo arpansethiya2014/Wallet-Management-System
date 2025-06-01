@@ -78,8 +78,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 
 		Optional<UserDetails> optional = userDetailsRepository.findByMobile(mobile);
+		System.out.println("******Wallet balance******");
 		return "Avilable Wallet Balance : " + optional.get().getBalance();
 	}
+
+
 
 	@Override
 	public String updateUserDetails(long id, UserDetailsRequest userDetailsRequest) {
