@@ -28,4 +28,9 @@ public class UserWalletController {
 		return userWalletTransactionsService.findUserId(userId);
 	}
 
+	@GetMapping("/display")
+	public String display(@PathVariable String message){
+		return message;
+
+	}
 }
